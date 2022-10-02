@@ -1,14 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package swingareasfiguras;
 
-/**
- *
- * @author user
- */
+
 public class Rombo {
+    double dmayor,dmenor,lado;
     
+    Rombo(double dmayor,double dmenor, double lado){
+        this.dmayor=dmayor;
+        this.dmenor=dmenor;
+        this.lado=lado;
+    }
+    
+    double calcularArea(){
+        return ((dmayor*dmenor)/2);
+    }
+    
+    double calcularPerimetro(){
+        return lado*4;
+    }
 }

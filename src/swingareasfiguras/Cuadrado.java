@@ -1,14 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package swingareasfiguras;
 
-/**
- *
- * @author user
- */
 public class Cuadrado {
-    
+
+    double lado;
+
+    Cuadrado(double lado) {
+        this.lado = lado;
+    }
+
+    double calcularArea() {
+        return lado * lado;
+    }
+
+    double calcularPerimetro() {
+        return (4 * lado);
+    }
+
 }

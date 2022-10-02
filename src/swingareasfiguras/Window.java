@@ -32,10 +32,20 @@ public class Window extends javax.swing.JFrame {
         txtLado1 = new javax.swing.JTextField();
         btnCalcular = new javax.swing.JButton();
         btnlimpiar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        listaFiguras = new javax.swing.JComboBox();
         txtLado2 = new javax.swing.JTextField();
         txtLado3 = new javax.swing.JTextField();
         txtLado4 = new javax.swing.JTextField();
+        lblConsejo = new javax.swing.JLabel();
+        lblMostrarArea = new javax.swing.JLabel();
+        lblMostrarPerimetro = new javax.swing.JLabel();
+        lblMostrarTipo = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,9 +64,35 @@ public class Window extends javax.swing.JFrame {
 
         btnlimpiar.setText("Limpiar");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Circulo", "Rectangulo", "Cuadrado", "Triangulo", "Rombo", "Trapecio" }));
+        listaFiguras.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Circulo", "Rectangulo", "Cuadrado", "Triangulo", "Rombo", "Trapecio" }));
+        listaFiguras.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                listaFigurasItemStateChanged(evt);
+            }
+        });
 
         txtLado3.setToolTipText("");
+
+        lblConsejo.setText("-");
+
+        lblMostrarArea.setText("-");
+
+        lblMostrarPerimetro.setText("-");
+
+        lblMostrarTipo.setText("-");
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel3.setText("Area y Perimetro de figuras geométricas");
+
+        jLabel4.setText("Escriba cero (0) en los campos que no necesite");
+
+        jLabel5.setText("L1");
+
+        jLabel6.setText("L2");
+
+        jLabel7.setText("L3");
+
+        jLabel8.setText("L4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -64,25 +100,53 @@ public class Window extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jLabel1)
-                .addGap(48, 48, 48)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblMostrarTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMostrarArea, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMostrarPerimetro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(48, 48, 48)
+                        .addComponent(listaFiguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(114, 114, 114)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addComponent(btnlimpiar)
+                .addGap(37, 37, 37)
+                .addComponent(btnCalcular)
+                .addGap(99, 99, 99))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(198, 198, 198)
+                .addComponent(jLabel3)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(lblConsejo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4))))
+                .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnlimpiar)
-                        .addGap(37, 37, 37)
-                        .addComponent(btnCalcular)
-                        .addGap(99, 99, 99))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtLado1, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
                             .addComponent(txtLado2)
                             .addComponent(txtLado3)
                             .addComponent(txtLado4))
-                        .addGap(37, 37, 37))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel5)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8))))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -92,33 +156,132 @@ public class Window extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(txtLado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5)))
+                            .addComponent(listaFiguras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtLado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(26, 26, 26)
-                .addComponent(txtLado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtLado2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblConsejo)
+                    .addComponent(jLabel7))
+                .addGap(7, 7, 7)
+                .addComponent(lblMostrarArea)
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtLado4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel8))
+                    .addComponent(lblMostrarPerimetro))
                 .addGap(18, 18, 18)
-                .addComponent(txtLado3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(txtLado4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addComponent(lblMostrarTipo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCalcular)
                     .addComponent(btnlimpiar))
                 .addGap(29, 29, 29))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        double lado1,lado2,lado3;
+        double lado1,lado2,lado3,lado4;
+        String figura,tipo;
+        
+        figura=(String)listaFiguras.getSelectedItem();
+        lado1=Double.parseDouble(txtLado1.getText());
+        lado2=Double.parseDouble(txtLado2.getText());
+        lado3=Double.parseDouble(txtLado3.getText());
+        lado4=Double.parseDouble(txtLado4.getText());
+        
+        if(figura.equals("Circulo")){
+            Circulo circulo=new Circulo(lado1);
+            lblMostrarPerimetro.setText("Perimetro: "+circulo.calcularPerimetro());
+            lblMostrarArea.setText("Area: "+circulo.calcularArea());
+        }
+        
+        else if(figura.equals("Rombo")){
+            Rombo rombo=new Rombo(lado1,lado2,lado3);
+            lblMostrarPerimetro.setText("Perimetro: "+rombo.calcularPerimetro());
+            lblMostrarArea.setText("Area: "+rombo.calcularArea());
+        }
+        
+        else if(figura.equals("Trapecio")){
+            Trapecio trapecio=new Trapecio(lado1,lado2,lado3,lado4);
+            lblMostrarPerimetro.setText("Perimetro: "+trapecio.calcularPerimetro());
+            lblMostrarArea.setText("Area: "+trapecio.calcularArea());
+        }
+        
+        else if(figura.equals("Triangulo")){
+            Triangulo triangulo=new Triangulo(lado1,lado2);
+            tipo=triangulo.determinarTipoTriangulo();
+            lblMostrarPerimetro.setText("Perimetro: "+triangulo.calcularPerimetro());
+            lblMostrarArea.setText("Area: "+triangulo.calcularArea());
+            lblMostrarTipo.setText(tipo);
+        }
+        
+        else if(figura.equals("Rectangulo")){
+            Rectangulo rectangulo=new  Rectangulo(lado1,lado2);
+            lblMostrarPerimetro.setText("Perimetro: "+rectangulo.calcularPerimetro());
+            lblMostrarArea.setText("Area: "+rectangulo.calcularArea());
+        }
+        
+        else {
+            Cuadrado cuadrado=new Cuadrado(lado1);
+            lblMostrarPerimetro.setText("Perimetro: "+cuadrado.calcularPerimetro());
+            lblMostrarArea.setText("Area: "+cuadrado.calcularArea());
+        }
+        
+        
     }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void listaFigurasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_listaFigurasItemStateChanged
+        String figura;
+        
+        figura=(String)listaFiguras.getSelectedItem();
+        
+        if(figura.equals("Circulo")){
+            lblConsejo.setText("Ingrese el radio del circulo");
+        }
+        
+        else if(figura.equals("Rombo")){
+            lblConsejo.setText("Ingrese la diagonal mayor,menor y el lado del Rombo,Respectivamente");
+        }
+        
+        else if(figura.equals("Trapecio")){
+            lblConsejo.setText("Ingrese la base menor,base mayor,altura y su lado diagonal,Respectivamente");
+        }
+        
+        else if(figura.equals("Triangulo")){
+            lblConsejo.setText("Ingrese la base y altura del Triángulo,Respectivamente");
+        }
+        
+        else if(figura.equals("Rectangulo")){
+            lblConsejo.setText("Ingrese la base y altura del Rectángulo,Respectivamente");
+        }
+        
+        else {
+            lblConsejo.setText("Ingrese el lado del Cuadrado");
+        }
+    }//GEN-LAST:event_listaFigurasItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -158,9 +321,19 @@ public class Window extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
     private javax.swing.JButton btnlimpiar;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lblConsejo;
+    private javax.swing.JLabel lblMostrarArea;
+    private javax.swing.JLabel lblMostrarPerimetro;
+    private javax.swing.JLabel lblMostrarTipo;
+    private javax.swing.JComboBox listaFiguras;
     private javax.swing.JTextField txtLado1;
     private javax.swing.JTextField txtLado2;
     private javax.swing.JTextField txtLado3;

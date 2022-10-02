@@ -1,14 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package swingareasfiguras;
 
-/**
- *
- * @author user
- */
 public class Rectangulo {
-    
+
+    double base, altura;
+
+    Rectangulo(double base, double altura) {
+        this.base = base;
+        this.altura = altura;
+    }
+
+    double calcularArea() {
+        return base * altura;
+    }
+
+    double calcularPerimetro() {
+        return (2 * base) + (2 * altura);
+    }
 }
